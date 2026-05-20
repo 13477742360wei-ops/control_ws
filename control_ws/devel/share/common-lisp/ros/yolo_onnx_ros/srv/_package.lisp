@@ -1,0 +1,10 @@
+(cl:defpackage yolo_onnx_ros-srv
+  (:use )
+  (:export
+   "OBJECTDETECTION"
+   "<OBJECTDETECTION-REQUEST>"
+   "OBJECTDETECTION-REQUEST"
+   "<OBJECTDETECTION-RESPONSE>"
+   "OBJECTDETECTION-RESPONSE"
+  ))
+

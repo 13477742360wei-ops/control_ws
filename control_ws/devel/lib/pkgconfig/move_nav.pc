@@ -1,0 +1,8 @@
+prefix=/home/ncut/ROS/craic-master/control_ws/devel
+
+Name: move_nav
+Description: Description of move_nav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: actionlib actionlib_msgs geometry_msgs move_base_msgs roscpp std_msgs cv_bridge sensor_msgs

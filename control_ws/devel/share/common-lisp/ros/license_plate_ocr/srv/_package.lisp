@@ -1,0 +1,10 @@
+(cl:defpackage license_plate_ocr-srv
+  (:use )
+  (:export
+   "LICENSEPLATEOCR"
+   "<LICENSEPLATEOCR-REQUEST>"
+   "LICENSEPLATEOCR-REQUEST"
+   "<LICENSEPLATEOCR-RESPONSE>"
+   "LICENSEPLATEOCR-RESPONSE"
+  ))
+

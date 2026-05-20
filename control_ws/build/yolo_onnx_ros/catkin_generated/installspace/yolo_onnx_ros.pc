@@ -1,0 +1,8 @@
+prefix=/home/ncut/ROS/craic-master/control_ws/install
+
+Name: yolo_onnx_ros
+Description: Description of yolo_onnx_ros
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

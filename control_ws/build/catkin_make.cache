@@ -1,0 +1,2 @@
+license_plate_ocr:move_nav:text_recognition:yolo_onnx_ros
+-DCATKIN_DEVEL_PREFIX=/home/ncut/ROS/craic-master/control_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ncut/ROS/craic-master/control_ws/install -G Unix Makefiles

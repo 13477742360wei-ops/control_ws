@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ncut/ROS/craic-master/control_ws/install/setup.sh
