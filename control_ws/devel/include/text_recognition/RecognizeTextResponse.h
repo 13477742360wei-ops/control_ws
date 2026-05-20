@@ -24,27 +24,27 @@ struct RecognizeTextResponse_
   typedef RecognizeTextResponse_<ContainerAllocator> Type;
 
   RecognizeTextResponse_()
-    : text()
-    , confidence(0.0)
-    , status()  {
+    : lab_open(false)
+    , wait_seconds(0)
+    , speech_text()  {
     }
   RecognizeTextResponse_(const ContainerAllocator& _alloc)
-    : text(_alloc)
-    , confidence(0.0)
-    , status(_alloc)  {
+    : lab_open(false)
+    , wait_seconds(0)
+    , speech_text(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _text_type;
-  _text_type text;
+   typedef uint8_t _lab_open_type;
+  _lab_open_type lab_open;
 
-   typedef float _confidence_type;
-  _confidence_type confidence;
+   typedef int32_t _wait_seconds_type;
+  _wait_seconds_type wait_seconds;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _status_type;
-  _status_type status;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _speech_text_type;
+  _speech_text_type speech_text;
 
 
 
@@ -75,9 +75,9 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::text_recognition::RecognizeTextResponse_<ContainerAllocator1> & lhs, const ::text_recognition::RecognizeTextResponse_<ContainerAllocator2> & rhs)
 {
-  return lhs.text == rhs.text &&
-    lhs.confidence == rhs.confidence &&
-    lhs.status == rhs.status;
+  return lhs.lab_open == rhs.lab_open &&
+    lhs.wait_seconds == rhs.wait_seconds &&
+    lhs.speech_text == rhs.speech_text;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +134,12 @@ struct MD5Sum< ::text_recognition::RecognizeTextResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5ef6ea0323417c9ea59ffa9676481cc1";
+    return "61a7d919646176c35855862f25c89e0a";
   }
 
   static const char* value(const ::text_recognition::RecognizeTextResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5ef6ea0323417c9eULL;
-  static const uint64_t static_value2 = 0xa59ffa9676481cc1ULL;
+  static const uint64_t static_value1 = 0x61a7d919646176c3ULL;
+  static const uint64_t static_value2 = 0x5855862f25c89e0aULL;
 };
 
 template<class ContainerAllocator>
@@ -158,10 +158,10 @@ struct Definition< ::text_recognition::RecognizeTextResponse_<ContainerAllocator
 {
   static const char* value()
   {
-    return "# 响应：返回识别结果\n"
-"string text          # 识别的文字\n"
-"float32 confidence   # 置信度\n"
-"string status        # 状态信息\n"
+    return "# 响应\n"
+"bool lab_open        # 是否空闲（可扩展）\n"
+"int32 wait_seconds   # 等待秒数（可扩展）\n"
+"string speech_text   # 识别出的文字\n"
 "\n"
 ;
   }
@@ -181,9 +181,9 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.text);
-      stream.next(m.confidence);
-      stream.next(m.status);
+      stream.next(m.lab_open);
+      stream.next(m.wait_seconds);
+      stream.next(m.speech_text);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -202,12 +202,12 @@ struct Printer< ::text_recognition::RecognizeTextResponse_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::text_recognition::RecognizeTextResponse_<ContainerAllocator>& v)
   {
-    s << indent << "text: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.text);
-    s << indent << "confidence: ";
-    Printer<float>::stream(s, indent + "  ", v.confidence);
-    s << indent << "status: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.status);
+    s << indent << "lab_open: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.lab_open);
+    s << indent << "wait_seconds: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.wait_seconds);
+    s << indent << "speech_text: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.speech_text);
   }
 };
 

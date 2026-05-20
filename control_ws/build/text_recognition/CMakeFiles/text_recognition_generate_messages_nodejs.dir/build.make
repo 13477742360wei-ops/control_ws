@@ -58,8 +58,6 @@ text_recognition/CMakeFiles/text_recognition_generate_messages_nodejs: /home/ncu
 
 /home/ncut/ROS/craic-master/control_ws/devel/share/gennodejs/ros/text_recognition/srv/RecognizeText.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/ncut/ROS/craic-master/control_ws/devel/share/gennodejs/ros/text_recognition/srv/RecognizeText.js: /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv
-/home/ncut/ROS/craic-master/control_ws/devel/share/gennodejs/ros/text_recognition/srv/RecognizeText.js: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
-/home/ncut/ROS/craic-master/control_ws/devel/share/gennodejs/ros/text_recognition/srv/RecognizeText.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ncut/ROS/craic-master/control_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from text_recognition/RecognizeText.srv"
 	cd /home/ncut/ROS/craic-master/control_ws/build/text_recognition && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p text_recognition -o /home/ncut/ROS/craic-master/control_ws/devel/share/gennodejs/ros/text_recognition/srv
 

@@ -1,8 +1,8 @@
-# 请求：传入摄像头图像
-sensor_msgs/Image image
+# 请求：图片路径
+string image_path
 
 ---
-# 响应：返回识别结果
-string text          # 识别的文字
-float32 confidence   # 置信度
-string status        # 状态信息
+# 响应
+bool lab_open        # 是否空闲（可扩展）
+int32 wait_seconds   # 等待秒数（可扩展）
+string speech_text   # 识别出的文字

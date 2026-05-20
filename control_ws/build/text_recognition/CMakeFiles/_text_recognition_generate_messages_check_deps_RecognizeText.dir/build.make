@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/ncut/ROS/craic-master/control_ws/build
 include text_recognition/CMakeFiles/_text_recognition_generate_messages_check_deps_RecognizeText.dir/progress.make
 
 text_recognition/CMakeFiles/_text_recognition_generate_messages_check_deps_RecognizeText:
-	cd /home/ncut/ROS/craic-master/control_ws/build/text_recognition && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py text_recognition /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv sensor_msgs/Image:std_msgs/Header
+	cd /home/ncut/ROS/craic-master/control_ws/build/text_recognition && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py text_recognition /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv 
 
 _text_recognition_generate_messages_check_deps_RecognizeText: text_recognition/CMakeFiles/_text_recognition_generate_messages_check_deps_RecognizeText
 _text_recognition_generate_messages_check_deps_RecognizeText: text_recognition/CMakeFiles/_text_recognition_generate_messages_check_deps_RecognizeText.dir/build.make

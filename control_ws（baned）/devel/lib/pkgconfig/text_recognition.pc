@@ -1,0 +1,8 @@
+prefix=/home/ncut/ROS/craic-master/control_ws/devel
+
+Name: text_recognition
+Description: Description of text_recognition
+Version: 0.0.0
+Cflags: -I/home/ncut/ROS/craic-master/control_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: cv_bridge rospy sensor_msgs std_msgs message_runtime

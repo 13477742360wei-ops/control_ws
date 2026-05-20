@@ -58,8 +58,6 @@ text_recognition/CMakeFiles/text_recognition_generate_messages_cpp: /home/ncut/R
 
 /home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv
-/home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
-/home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/ncut/ROS/craic-master/control_ws/devel/include/text_recognition/RecognizeText.h: /opt/ros/melodic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ncut/ROS/craic-master/control_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from text_recognition/RecognizeText.srv"

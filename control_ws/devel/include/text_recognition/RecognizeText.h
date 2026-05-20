@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::text_recognition::RecognizeText > {
   static const char* value()
   {
-    return "56d74e4557366e6ce23664c10a470391";
+    return "992db631aebc62bb18995fe2bf59be7e";
   }
 
   static const char* value(const ::text_recognition::RecognizeText&) { return value(); }

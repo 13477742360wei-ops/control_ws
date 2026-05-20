@@ -59,8 +59,6 @@ text_recognition/CMakeFiles/text_recognition_generate_messages_py: /home/ncut/RO
 
 /home/ncut/ROS/craic-master/control_ws/devel/lib/python2.7/dist-packages/text_recognition/srv/_RecognizeText.py: /opt/ros/melodic/lib/genpy/gensrv_py.py
 /home/ncut/ROS/craic-master/control_ws/devel/lib/python2.7/dist-packages/text_recognition/srv/_RecognizeText.py: /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv
-/home/ncut/ROS/craic-master/control_ws/devel/lib/python2.7/dist-packages/text_recognition/srv/_RecognizeText.py: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
-/home/ncut/ROS/craic-master/control_ws/devel/lib/python2.7/dist-packages/text_recognition/srv/_RecognizeText.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ncut/ROS/craic-master/control_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code from SRV text_recognition/RecognizeText"
 	cd /home/ncut/ROS/craic-master/control_ws/build/text_recognition && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p text_recognition -o /home/ncut/ROS/craic-master/control_ws/devel/lib/python2.7/dist-packages/text_recognition/srv
 

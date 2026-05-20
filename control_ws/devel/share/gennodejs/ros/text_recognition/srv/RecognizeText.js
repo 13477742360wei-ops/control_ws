@@ -11,7 +11,6 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
-let sensor_msgs = _finder('sensor_msgs');
 
 //-----------------------------------------------------------
 
@@ -22,22 +21,22 @@ class RecognizeTextRequest {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.image = null;
+      this.image_path = null;
     }
     else {
-      if (initObj.hasOwnProperty('image')) {
-        this.image = initObj.image
+      if (initObj.hasOwnProperty('image_path')) {
+        this.image_path = initObj.image_path
       }
       else {
-        this.image = new sensor_msgs.msg.Image();
+        this.image_path = '';
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type RecognizeTextRequest
-    // Serialize message field [image]
-    bufferOffset = sensor_msgs.msg.Image.serialize(obj.image, buffer, bufferOffset);
+    // Serialize message field [image_path]
+    bufferOffset = _serializer.string(obj.image_path, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -45,15 +44,15 @@ class RecognizeTextRequest {
     //deserializes a message object of type RecognizeTextRequest
     let len;
     let data = new RecognizeTextRequest(null);
-    // Deserialize message field [image]
-    data.image = sensor_msgs.msg.Image.deserialize(buffer, bufferOffset);
+    // Deserialize message field [image_path]
+    data.image_path = _deserializer.string(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
-    length += sensor_msgs.msg.Image.getMessageSize(object.image);
-    return length;
+    length += object.image_path.length;
+    return length + 4;
   }
 
   static datatype() {
@@ -63,61 +62,15 @@ class RecognizeTextRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b13d2865c5af2a64e6e30ab1b56e1dd5';
+    return '65568c775bfbc96c6265c3d13d7e1a07';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    # 请求：传入摄像头图像
-    sensor_msgs/Image image
+    # 请求：图片路径
+    string image_path
     
-    
-    ================================================================================
-    MSG: sensor_msgs/Image
-    # This message contains an uncompressed image
-    # (0, 0) is at top-left corner of image
-    #
-    
-    Header header        # Header timestamp should be acquisition time of image
-                         # Header frame_id should be optical frame of camera
-                         # origin of frame should be optical center of camera
-                         # +x should point to the right in the image
-                         # +y should point down in the image
-                         # +z should point into to plane of the image
-                         # If the frame_id here and the frame_id of the CameraInfo
-                         # message associated with the image conflict
-                         # the behavior is undefined
-    
-    uint32 height         # image height, that is, number of rows
-    uint32 width          # image width, that is, number of columns
-    
-    # The legal values for encoding are in file src/image_encodings.cpp
-    # If you want to standardize a new string format, join
-    # ros-users@lists.sourceforge.net and send an email proposing a new encoding.
-    
-    string encoding       # Encoding of pixels -- channel meaning, ordering, size
-                          # taken from the list of strings in include/sensor_msgs/image_encodings.h
-    
-    uint8 is_bigendian    # is this data bigendian?
-    uint32 step           # Full row length in bytes
-    uint8[] data          # actual matrix data, size is (step * rows)
-    
-    ================================================================================
-    MSG: std_msgs/Header
-    # Standard metadata for higher-level stamped data types.
-    # This is generally used to communicate timestamped data 
-    # in a particular coordinate frame.
-    # 
-    # sequence ID: consecutively increasing ID 
-    uint32 seq
-    #Two-integer timestamp that is expressed as:
-    # * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
-    # * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
-    # time-handling sugar is provided by the client library
-    time stamp
-    #Frame this data is associated with
-    string frame_id
     
     `;
   }
@@ -128,11 +81,11 @@ class RecognizeTextRequest {
       msg = {};
     }
     const resolved = new RecognizeTextRequest(null);
-    if (msg.image !== undefined) {
-      resolved.image = sensor_msgs.msg.Image.Resolve(msg.image)
+    if (msg.image_path !== undefined) {
+      resolved.image_path = msg.image_path;
     }
     else {
-      resolved.image = new sensor_msgs.msg.Image()
+      resolved.image_path = ''
     }
 
     return resolved;
@@ -143,40 +96,40 @@ class RecognizeTextResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.text = null;
-      this.confidence = null;
-      this.status = null;
+      this.lab_open = null;
+      this.wait_seconds = null;
+      this.speech_text = null;
     }
     else {
-      if (initObj.hasOwnProperty('text')) {
-        this.text = initObj.text
+      if (initObj.hasOwnProperty('lab_open')) {
+        this.lab_open = initObj.lab_open
       }
       else {
-        this.text = '';
+        this.lab_open = false;
       }
-      if (initObj.hasOwnProperty('confidence')) {
-        this.confidence = initObj.confidence
-      }
-      else {
-        this.confidence = 0.0;
-      }
-      if (initObj.hasOwnProperty('status')) {
-        this.status = initObj.status
+      if (initObj.hasOwnProperty('wait_seconds')) {
+        this.wait_seconds = initObj.wait_seconds
       }
       else {
-        this.status = '';
+        this.wait_seconds = 0;
+      }
+      if (initObj.hasOwnProperty('speech_text')) {
+        this.speech_text = initObj.speech_text
+      }
+      else {
+        this.speech_text = '';
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type RecognizeTextResponse
-    // Serialize message field [text]
-    bufferOffset = _serializer.string(obj.text, buffer, bufferOffset);
-    // Serialize message field [confidence]
-    bufferOffset = _serializer.float32(obj.confidence, buffer, bufferOffset);
-    // Serialize message field [status]
-    bufferOffset = _serializer.string(obj.status, buffer, bufferOffset);
+    // Serialize message field [lab_open]
+    bufferOffset = _serializer.bool(obj.lab_open, buffer, bufferOffset);
+    // Serialize message field [wait_seconds]
+    bufferOffset = _serializer.int32(obj.wait_seconds, buffer, bufferOffset);
+    // Serialize message field [speech_text]
+    bufferOffset = _serializer.string(obj.speech_text, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -184,20 +137,19 @@ class RecognizeTextResponse {
     //deserializes a message object of type RecognizeTextResponse
     let len;
     let data = new RecognizeTextResponse(null);
-    // Deserialize message field [text]
-    data.text = _deserializer.string(buffer, bufferOffset);
-    // Deserialize message field [confidence]
-    data.confidence = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [status]
-    data.status = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [lab_open]
+    data.lab_open = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [wait_seconds]
+    data.wait_seconds = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [speech_text]
+    data.speech_text = _deserializer.string(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.text.length;
-    length += object.status.length;
-    return length + 12;
+    length += object.speech_text.length;
+    return length + 9;
   }
 
   static datatype() {
@@ -207,16 +159,16 @@ class RecognizeTextResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5ef6ea0323417c9ea59ffa9676481cc1';
+    return '61a7d919646176c35855862f25c89e0a';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    # 响应：返回识别结果
-    string text          # 识别的文字
-    float32 confidence   # 置信度
-    string status        # 状态信息
+    # 响应
+    bool lab_open        # 是否空闲（可扩展）
+    int32 wait_seconds   # 等待秒数（可扩展）
+    string speech_text   # 识别出的文字
     
     
     `;
@@ -228,25 +180,25 @@ class RecognizeTextResponse {
       msg = {};
     }
     const resolved = new RecognizeTextResponse(null);
-    if (msg.text !== undefined) {
-      resolved.text = msg.text;
+    if (msg.lab_open !== undefined) {
+      resolved.lab_open = msg.lab_open;
     }
     else {
-      resolved.text = ''
+      resolved.lab_open = false
     }
 
-    if (msg.confidence !== undefined) {
-      resolved.confidence = msg.confidence;
+    if (msg.wait_seconds !== undefined) {
+      resolved.wait_seconds = msg.wait_seconds;
     }
     else {
-      resolved.confidence = 0.0
+      resolved.wait_seconds = 0
     }
 
-    if (msg.status !== undefined) {
-      resolved.status = msg.status;
+    if (msg.speech_text !== undefined) {
+      resolved.speech_text = msg.speech_text;
     }
     else {
-      resolved.status = ''
+      resolved.speech_text = ''
     }
 
     return resolved;
@@ -256,6 +208,6 @@ class RecognizeTextResponse {
 module.exports = {
   Request: RecognizeTextRequest,
   Response: RecognizeTextResponse,
-  md5sum() { return '56d74e4557366e6ce23664c10a470391'; },
+  md5sum() { return '992db631aebc62bb18995fe2bf59be7e'; },
   datatype() { return 'text_recognition/RecognizeText'; }
 };

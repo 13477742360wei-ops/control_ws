@@ -58,8 +58,6 @@ text_recognition/CMakeFiles/text_recognition_generate_messages_lisp: /home/ncut/
 
 /home/ncut/ROS/craic-master/control_ws/devel/share/common-lisp/ros/text_recognition/srv/RecognizeText.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/ncut/ROS/craic-master/control_ws/devel/share/common-lisp/ros/text_recognition/srv/RecognizeText.lisp: /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv
-/home/ncut/ROS/craic-master/control_ws/devel/share/common-lisp/ros/text_recognition/srv/RecognizeText.lisp: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
-/home/ncut/ROS/craic-master/control_ws/devel/share/common-lisp/ros/text_recognition/srv/RecognizeText.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ncut/ROS/craic-master/control_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from text_recognition/RecognizeText.srv"
 	cd /home/ncut/ROS/craic-master/control_ws/build/text_recognition && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p text_recognition -o /home/ncut/ROS/craic-master/control_ws/devel/share/common-lisp/ros/text_recognition/srv
 

@@ -1,0 +1,8 @@
+# 请求：传入摄像头图像
+sensor_msgs/Image image
+
+---
+# 响应：返回识别结果
+string text          # 识别的文字
+float32 confidence   # 置信度
+string status        # 状态信息

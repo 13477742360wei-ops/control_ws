@@ -19,7 +19,7 @@ add_custom_target(text_recognition_generate_messages ALL)
 
 get_filename_component(_filename "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv" NAME_WE)
 add_custom_target(_text_recognition_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "text_recognition" "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv" "sensor_msgs/Image:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "text_recognition" "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv" ""
 )
 
 #
@@ -33,7 +33,7 @@ add_custom_target(_text_recognition_generate_messages_check_deps_${_filename}
 _generate_srv_cpp(text_recognition
   "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/text_recognition
 )
 
@@ -66,7 +66,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS text_recognition_generate_messages_
 _generate_srv_eus(text_recognition
   "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/text_recognition
 )
 
@@ -99,7 +99,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS text_recognition_generate_messages_
 _generate_srv_lisp(text_recognition
   "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/text_recognition
 )
 
@@ -132,7 +132,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS text_recognition_generate_messages_
 _generate_srv_nodejs(text_recognition
   "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/text_recognition
 )
 
@@ -165,7 +165,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS text_recognition_generate_messages_
 _generate_srv_py(text_recognition
   "/home/ncut/ROS/craic-master/control_ws/src/text_recognition/srv/RecognizeText.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/text_recognition
 )
 
