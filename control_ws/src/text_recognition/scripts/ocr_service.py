@@ -7,6 +7,7 @@ import pytesseract
 import sys
 import numpy as np
 import os
+import re
 from text_recognition.srv import RecognizeText, RecognizeTextResponse
 
 reload(sys)
@@ -24,40 +25,43 @@ class OCRService:
         
         # 提供服务
         self.service = rospy.Service('/board2/decode', RecognizeText, self.handle_request)
-        rospy.loginfo("OCR Service 已启动，等待请求...")
+        rospy.loginfo("OCR Service 已启动")
+    
+    def extract_wait_seconds(self, text):
+        """从文字中提取等待秒数，返回最后一个数字"""
+        if not text:
+            return 0
         
+        # 移除所有空白字符
+        text = re.sub(r'\s+', ' ', text)
+        
+        # 查找所有数字
+        numbers = re.findall(r'(\d+)', text)
+        
+        if numbers:
+            seconds = int(numbers[-1])
+            rospy.loginfo("提取到数字: %s → 等待 %d 秒" % (numbers, seconds))
+            return seconds
+        
+        return 0
+    
     def handle_request(self, req):
-        """
-        接收图片路径，返回识别结果
-        req.image_path: 图片文件路径
-        """
         response = RecognizeTextResponse()
         response.lab_open = True
         response.wait_seconds = 0
         response.speech_text = ""
         
-        # 检查路径
-        if not req.image_path:
-            rospy.logwarn("未提供图片路径")
-            response.speech_text = ""
-            return response
-        
-        if not os.path.exists(req.image_path):
-            rospy.logerr("图片不存在: %s" % req.image_path)
-            response.speech_text = ""
+        if not req.image_path or not os.path.exists(req.image_path):
+            rospy.logwarn("图片不存在: %s" % req.image_path)
             return response
         
         try:
-            # 读取图片
             cv_image = cv2.imread(req.image_path)
             if cv_image is None:
                 rospy.logerr("无法读取图片: %s" % req.image_path)
                 return response
             
-            # 预处理
             gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
-            
-            # OCR 识别
             text_raw = pytesseract.image_to_string(gray, lang='chi_sim+eng')
             
             if isinstance(text_raw, str):
@@ -66,14 +70,18 @@ class OCRService:
                 text = text_raw
             
             response.speech_text = text.strip()
-            rospy.loginfo("识别结果: '%s'" % response.speech_text)
+            response.wait_seconds = self.extract_wait_seconds(response.speech_text)
+            
+            rospy.loginfo("识别: '%s' → 等待 %d 秒" % (response.speech_text, response.wait_seconds))
             
         except Exception as e:
             rospy.logerr("OCR 出错: %s" % str(e))
-            response.speech_text = ""
         
         return response
 
 if __name__ == '__main__':
-    ocr = OCRService()
-    rospy.spin()
+    try:
+        OCRService()
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
